@@ -1,3 +1,4 @@
-FROM php:8.2-apache
-COPY . /var/www/html/
-CMD ["apache2-foreground"]
+FROM php:8.2-cli
+WORKDIR /app
+COPY . .
+CMD sh -c "php -S 0.0.0.0:${PORT} -t /app"
